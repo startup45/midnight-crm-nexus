@@ -10,6 +10,7 @@ import Login from "./pages/auth/Login";
 import Dashboard from "./pages/dashboard/Dashboard";
 import Clients from "./pages/clients/Clients";
 import Tasks from "./pages/tasks/Tasks";
+import Calendar from "./pages/calendar/Calendar";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
