@@ -5,6 +5,7 @@ import TaskCalendar from "@/components/tasks/TaskCalendar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Task } from "@/pages/tasks/Tasks";
+import { format } from "date-fns";
 
 const Calendar = () => {
   // Mock data for calendar events - in a real app, this would come from your backend
@@ -13,10 +14,11 @@ const Calendar = () => {
       id: "1",
       title: "Team Meeting",
       description: "Weekly sync with development team",
-      dueDate: new Date(), 
+      dueDate: new Date().toISOString(), // Convert Date to string format
       priority: "high" as "high", // Type assertion to match Task type
       status: "todo" as "todo", // Type assertion to match Task type
       assignee: {
+        id: "user1", // Add required id property
         name: "John Doe",
         avatar: "/placeholder.svg"
       },
@@ -26,10 +28,11 @@ const Calendar = () => {
       id: "2",
       title: "Client Call",
       description: "Project review with client",
-      dueDate: new Date(Date.now() + 86400000), // Tomorrow
+      dueDate: new Date(Date.now() + 86400000).toISOString(), // Convert Date to string format
       priority: "medium" as "medium", // Type assertion to match Task type
       status: "in_progress" as "in_progress", // Type assertion to match Task type
       assignee: {
+        id: "user2", // Add required id property
         name: "Jane Smith",
         avatar: "/placeholder.svg"
       },
@@ -71,7 +74,7 @@ const Calendar = () => {
                     </p>
                     <div className="flex items-center space-x-2">
                       <p className="text-xs text-muted-foreground">
-                        {event.dueDate.toLocaleDateString()}
+                        {format(new Date(event.dueDate), 'MMM d, yyyy')}
                       </p>
                     </div>
                   </div>
