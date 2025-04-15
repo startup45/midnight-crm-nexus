@@ -9,19 +9,20 @@ const Calendar = () => {
   // Mock data for calendar events - in a real app, this would come from your backend
   const mockEvents = [
     {
-      id: 1,
+      id: "1", // Updated to string to match Task type
       title: "Team Meeting",
       description: "Weekly sync with development team",
-      dueDate: new Date(),
+      dueDate: new Date(), 
       priority: "high",
       status: "todo",
       assignee: {
         name: "John Doe",
         avatar: "/placeholder.svg"
-      }
+      },
+      createdAt: new Date().toISOString() // Added required createdAt property
     },
     {
-      id: 2,
+      id: "2", // Updated to string to match Task type
       title: "Client Call",
       description: "Project review with client",
       dueDate: new Date(Date.now() + 86400000), // Tomorrow
@@ -30,7 +31,8 @@ const Calendar = () => {
       assignee: {
         name: "Jane Smith",
         avatar: "/placeholder.svg"
-      }
+      },
+      createdAt: new Date().toISOString() // Added required createdAt property
     }
   ];
 
