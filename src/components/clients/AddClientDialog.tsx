@@ -81,7 +81,17 @@ const AddClientDialog: React.FC<AddClientDialogProps> = ({
   });
 
   const onSubmit = (data: FormValues) => {
-    onAddClient(data);
+    // The issue is here - we need to ensure all required properties are passed
+    // and the type matches exactly what's expected by onAddClient
+    onAddClient({
+      name: data.name,
+      company: data.company,
+      email: data.email,
+      phone: data.phone,
+      status: data.status,
+      industry: data.industry,
+      lastContact: data.lastContact,
+    });
     form.reset();
   };
 
