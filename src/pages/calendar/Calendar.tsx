@@ -4,35 +4,36 @@ import { CalendarRange, Plus } from "lucide-react";
 import TaskCalendar from "@/components/tasks/TaskCalendar";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
+import { Task } from "@/pages/tasks/Tasks";
 
 const Calendar = () => {
   // Mock data for calendar events - in a real app, this would come from your backend
-  const mockEvents = [
+  const mockEvents: Task[] = [
     {
-      id: "1", // Updated to string to match Task type
+      id: "1",
       title: "Team Meeting",
       description: "Weekly sync with development team",
       dueDate: new Date(), 
-      priority: "high",
-      status: "todo",
+      priority: "high" as "high", // Type assertion to match Task type
+      status: "todo" as "todo", // Type assertion to match Task type
       assignee: {
         name: "John Doe",
         avatar: "/placeholder.svg"
       },
-      createdAt: new Date().toISOString() // Added required createdAt property
+      createdAt: new Date().toISOString()
     },
     {
-      id: "2", // Updated to string to match Task type
+      id: "2",
       title: "Client Call",
       description: "Project review with client",
       dueDate: new Date(Date.now() + 86400000), // Tomorrow
-      priority: "medium",
-      status: "in_progress",
+      priority: "medium" as "medium", // Type assertion to match Task type
+      status: "in_progress" as "in_progress", // Type assertion to match Task type
       assignee: {
         name: "Jane Smith",
         avatar: "/placeholder.svg"
       },
-      createdAt: new Date().toISOString() // Added required createdAt property
+      createdAt: new Date().toISOString()
     }
   ];
 
